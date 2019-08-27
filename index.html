@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Student List</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="students"></div>
+    </main>
+    <footer></footer>
+    <template class="temp">
+      <h2></h2>
+      <p></p>
+    </template>
+    <script>
+      let students = [];
+      document.addEventListener("DOMContentLoaded", getJson);
+      async function getJson() {
+        const url = "http://petlatkea.dk/2019/students1991.json";
+        const studentsJson = await fetch(url);
+        students = await studentsJson.json();
+
+        showStudents();
+      }
+
+      function showStudents() {
+        let dest = document.querySelector(".students");
+        let temp = document.querySelector(".temp");
+
+        students.forEach(student => {
+          let klon = temp.cloneNode(true).content;
+          klon.querySelector("h2").innerHTML = student.fullname;
+          klon.querySelector("p").innerHTML = student.house;
+
+          dest.appendChild(klon);
+        });
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
