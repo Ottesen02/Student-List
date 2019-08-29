@@ -1,0 +1,23 @@
+.students {
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: center;
+}
+
+article {
+  padding: 20px 0;
+}
+
+h2 {
+  font-family: fantasy;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
