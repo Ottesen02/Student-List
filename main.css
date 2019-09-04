@@ -1,15 +1,20 @@
 .students {
   display: grid;
-  grid-template-columns: auto auto;
-  text-align: center;
+  grid-template-columns: auto;
+  text-align: left;
+  padding: 20px;
 }
 
 article {
-  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border-top: 1px solid black;
 }
 
 h2 {
   font-family: fantasy;
+  font-size: 20px;
 }
 
 p {

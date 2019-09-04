@@ -8,7 +8,21 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <header><h1>My header</h1></header>
+    <header>
+      <nav id="filtrering">
+        <button class="filter valgt" data-house="all">All</button>
+        <button class="filter" data-house="Hufflepuff">Hufflepuff</button>
+        <button class="filter" data-house="Gryffindor">Gryffindor</button>
+        <button class="filter" data-house="Ravenclaw">Ravenclaw</button>
+        <button class="filter" data-house="Slytherin">Slytherin</button>
+      </nav>
+
+      <nav id="sorting">
+        <button class="firstname">First Name</button>
+        <button class="lastname">Last Name</button>
+        <button class="house">House</button>
+      </nav>
+    </header>
     <main>
       <h1>Hogwarts - Class of 1991</h1>
       <section class="students"></section>
