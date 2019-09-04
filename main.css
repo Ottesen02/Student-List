@@ -26,3 +26,51 @@ h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+#overlay {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  display: none;
+}
+
+#indhold {
+  width: 70vw;
+  height: 60vh;
+  margin: 15vh auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 30px 5px;
+  overflow: scroll;
+  box-shadow: 0 0 10px #001aff;
+}
+
+.popup-billede {
+  text-align: center;
+}
+
+#indhold img {
+  max-width: 60vw;
+}
+
+.popup-tekst {
+  margin: 0 20px;
+}
+
+#luk {
+  position: fixed;
+  right: 14vw;
+  top: 10vh;
+}
+
+#luk button {
+  padding: 5px 25px;
+  font-size: 15px;
+  background-color: black;
+  border: 2px solid #001aff;
+  font-weight: 700;
+  color: white;
+}

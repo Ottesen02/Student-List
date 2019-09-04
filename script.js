@@ -8,6 +8,8 @@ function start() {
 let students = [];
 let dest = document.querySelector(".students");
 let temp = document.querySelector(".temp");
+let popup = document.querySelector("#indhold");
+let popTemp = document.querySelector(".popuptemp");
 let filterHouse = "all";
 
 async function getJson() {
@@ -26,14 +28,31 @@ function showStudents() {
       let klon = temp.cloneNode(true).content;
       klon.querySelector("h2").innerHTML = student.fullname;
       klon.querySelector("p").innerHTML = student.house;
+      dest.appendChild(klon);
 
-      document.querySelector(".firstname").addEventListener("click", () => {
-        student.sort((a, z) => {
-          return a.fullname.localeCompare(z.fullname);
-        });
+      dest.lastElementChild.addEventListener("click", () => {
+        let klonTwo = popTemp.cloneNode(true).content;
+        klonTwo.querySelector("h3").student.fullname;
+        klonTwo.querySelector(".pop-house-desc").student.house;
+        popup.appendChild(klonTwo);
+
+        document.querySelector("#overlay").style.display = "block";
       });
 
-      dest.appendChild(klon);
+      // Skal lave sorteting når man trykker på knap
+      //document.querySelector(".firstname").addEventListener("click", () => {
+      //  student.sort((a, z) => {
+      //    return a.fullname.localeCompare(z.fullname);
+
+      //Sortering Lastname
+      //Split navn så man kan få fat i først bogstav efter mellemrum
+      //sorter på det første bogstav efter mellemrum når man trykker på knap
+
+      //Sorting House
+
+      function showStudent() {
+        popup.innerHTML = "";
+      }
     }
   });
 }
