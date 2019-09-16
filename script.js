@@ -17,44 +17,48 @@ async function getJson() {
   const studentsJson = await fetch(url);
   students = await studentsJson.json();
 
+  // prepareStudents(students);
   showStudents();
 }
 
 function showStudents() {
-  dest.innerHTML = "";
+  dest.textContent = "";
   students.forEach(student => {
-    console.log(filterHouse);
+    const split = student.fullname.split(" ");
+    console.log(split);
     if (filterHouse == "all" || filterHouse == student.house) {
+      console.log(filterHouse);
       let klon = temp.cloneNode(true).content;
-      klon.querySelector("h2").innerHTML = student.fullname;
-      klon.querySelector("p").innerHTML = student.house;
+      let firstName = split[0];
+      let lastName = split[1];
+      klon.querySelector("[data-field=name]").textContent =
+        firstName + " " + lastName;
+      klon.querySelector("[data-field=house]").textContent = student.house;
       dest.appendChild(klon);
 
-      dest.lastElementChild.addEventListener("click", () => {
-        let klonTwo = popTemp.cloneNode(true).content;
-        klonTwo.querySelector("h3").student.fullname;
-        klonTwo.querySelector(".pop-house-desc").student.house;
-        popup.appendChild(klonTwo);
-
-        document.querySelector("#overlay").style.display = "block";
-      });
-
-      // Skal lave sorteting når man trykker på knap
-      //document.querySelector(".firstname").addEventListener("click", () => {
-      //  student.sort((a, z) => {
-      //    return a.fullname.localeCompare(z.fullname);
-
-      //Sortering Lastname
-      //Split navn så man kan få fat i først bogstav efter mellemrum
-      //sorter på det første bogstav efter mellemrum når man trykker på knap
-
-      //Sorting House
-
-      function showStudent() {
-        popup.innerHTML = "";
-      }
+      studentPopup(student);
     }
   });
+}
+
+function studentPopup(student) {
+  dest.lastElementChild.addEventListener("click", () => {
+    let klonTwo = popTemp.cloneNode(true).content;
+    klonTwo.querySelector("h3").textContent = student.fullname;
+    klonTwo.querySelector(".pop-house-desc").textContent = student.house;
+    popup.appendChild(klonTwo);
+
+    document.querySelector("#overlay").style.display = "block";
+  });
+}
+
+document.querySelector("#luk").addEventListener("click", () => {
+  document.querySelector("#overlay").style.display = "none";
+  showStudent();
+});
+
+function showStudent() {
+  popup.innerHTML = "";
 }
 
 document.querySelectorAll(".filter").forEach(but => {
@@ -69,3 +73,14 @@ function filtrering() {
   filterHouse = this.getAttribute("data-house");
   showStudents();
 }
+
+// Skal lave sorteting når man trykker på knap
+//document.querySelector(".firstname").addEventListener("click", () => {
+//  student.sort((a, z) => {
+//    return a.fullname.localeCompare(z.fullname);
+
+//Sortering Lastname
+//Split navn så man kan få fat i først bogstav efter mellemrum
+//sorter på det første bogstav efter mellemrum når man trykker på knap
+
+//Sorting House
