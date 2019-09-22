@@ -8,49 +8,85 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <div id="overlay">
+      <div id="luk">
+        <button>CLOSE</button>
+      </div>
+      <div id="indhold"></div>
+    </div>
+    <section class="hero">
+      <div class="dark-overlay">
+        <h1 class="upper-header">Hogwarts</h1>
+        <img src="kisspng-harry-potter-hogwarts-gryffindor-slytherin-house-c-crest-5ac37340e4e6e7.4091721115227584649376.png" alt="" class="hogwarts-logo" />
+        <h1 class="lower-header">School of Witchcraft and Wizardry</h1>
+      </div>
+    </section>
     <header>
-      <nav id="filtrering">
-        <button class="filter valgt" data-house="all">All</button>
-        <button class="filter" data-house="Hufflepuff">Hufflepuff</button>
-        <button class="filter" data-house="Gryffindor">Gryffindor</button>
-        <button class="filter" data-house="Ravenclaw">Ravenclaw</button>
-        <button class="filter" data-house="Slytherin">Slytherin</button>
-      </nav>
-
-      <nav id="sorting">
-        <button class="firstname">First Name</button>
-        <button class="lastname">Last Name</button>
-        <button class="house">House</button>
-      </nav>
+      <h2 class="list-1991">Student List of class 1991</h2>
+      <div class="options">
+        <div id="filter">
+          <h3 class="filter-header">Filter</h3>
+          <nav id="filtrering">
+            <button class="filter valgt" data-house="all">All</button>
+            <button class="filter" data-house="Hufflepuff">Hufflepuff</button>
+            <button class="filter" data-house="Gryffindor">Gryffindor</button>
+            <button class="filter" data-house="Ravenclaw">Ravenclaw</button>
+            <button class="filter" data-house="Slytherin">Slytherin</button>
+          </nav>
+        </div>
+        <div id="sorting">
+          <h3 class="sorting-header">Sorting</h3>
+          <label id="sort-dropdown">
+            <select name="sort" id="sort">
+              <option value="none">None</option>
+              <option value="firstname">Firstname</option>
+              <option value="lastname">Lastname</option>
+              <option value="house">House</option>
+            </select>
+          </label>
+        </div>
+      </div>
     </header>
     <main>
-      <div id="overlay">
-        <div id="luk">
-          <button>LUK</button>
-        </div>
-        <div id="indhold"></div>
+      <div class="overall-counter">
+        <p id="counter">Current Students: 35</p>
+        <p id="expelled-counter">Expelled Students: 0</p>
       </div>
-      <h1>Hogwarts - Class of 1991</h1>
-        <secetion class="students"></section>
-      </table>
+      <div id="house-counter">
+        <p class="gryf-counter">Gryffindor: 8</p>
+        <p class="sly-counter">Slytherin: 10</p>
+        <p class="huff-counter">Hufflepuff: 9</p>
+        <p class="raven-counter">Ravenclaw: 8</p>
+      </div>
+      <section class="students"></section>
     </main>
     <footer><h2>this is my footer</h2></footer>
     <template class="temp">
-      <article class="student">
-        <p data-field="name" class="student-name">NAME</p>
-        <p data-field="house" class="student-house">HOUSE</p>
-      </article>
+      <div class="scroll">
+        <article class="student">
+          <img data-field="image" class="student-image" src="" alt="" />
+          <div class="student-text">
+            <p data-field="name" class="student-name">NAME</p>
+            <p data-field="house" class="student-house">HOUSE</p>
+          </div>
+        </article>
+        <button data-action="remove" class="expell">Expell</button>
+      </div>
     </template>
     <template class="popuptemp">
-      <figure>
-        <img src="" alt="" class="student-img" />
-      </figure>
-      <h3></h3>
-      <div id="pop-house">
-        <h4 class="pop-house-desc"></h4>
-        <img src="" alt="" class="pop-house-img" />
+      <div class="popup-info-container">
+        <img data-field="popup-image" src="" alt="" class="student-img" />
+        <h3 data-field="popup-name" class="popup-name"></h3>
+        <div id="pop-house">
+          <h4 data-field="house-name" class="pop-house-desc"></h4>
+          <img src="" alt="" data-field="image" class="pop-house-img" />
+        </div>
       </div>
-      <p class="student-desc"></p>
+      <div class="statuses">
+        <img src="purewizard.png" alt="" class="blood" />
+        <img src="prefect-bw.png" alt="" class="prefect" />
+        <img src="inq-bw.png" alt="" class="inq" />
+      </div>
     </template>
     <script src="script.js"></script>
   </body>
